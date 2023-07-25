@@ -187,5 +187,5 @@ MonoBehaviour:
   moveSpeed: 5
   rotateSpeed: 120
   enemyRotateSpeed: 200
-  rotationDuration: 4
+  rotationDuration: 3
   originPosition: {fileID: 0}
