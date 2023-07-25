@@ -182,7 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d462b5f0d05b342bff28154b855d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 45
+  radius: 90
   angle: 45
   moveSpeed: 5
-  rotateSpeed: 150
+  rotateSpeed: 120
+  enemyRotateSpeed: 200
+  rotationDuration: 4
+  originPosition: {fileID: 0}

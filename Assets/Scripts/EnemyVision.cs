@@ -8,10 +8,15 @@ public class EnemyVision : MonoBehaviour
     public float angle;
     public float moveSpeed = 5f;
     public float rotateSpeed = 5f;
-    public Transform originPosition; 
+    public float enemyRotateSpeed;
+    public float rotationDuration = 3f;
+    public Transform originPosition;
 
     private Transform player;
     private bool isChasing = false;
+    private bool atOrigin = true;
+    private float targetRotation;
+    private float rotationTimer;
 
     private void Start()
     {
@@ -21,7 +26,7 @@ public class EnemyVision : MonoBehaviour
     private void Update()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
-      
+        bool playerDetected = false;
 
         foreach (var hit in hits)
         {
@@ -32,16 +37,30 @@ public class EnemyVision : MonoBehaviour
 
                 if (angleToPlayer <= angle / 2f && !ObstructedVision())
                 {
+                    playerDetected = true;
                     isChasing = true;
                     ChasePlayer();
-                    return;
+                    break;
                 }
             }
         }
 
         // If no player is found within the cone or the vision is obstructed, stop chasing and return to origin position
-        isChasing = false;
-        ReturnToOrigin();
+        isChasing = playerDetected;
+        if (!isChasing)
+        {
+            if (!atOrigin)
+            {
+               
+                RotateInPlace();
+            }
+            else
+            {
+               
+                ReturnToOrigin();
+                ConstantRotate();
+            }
+        }
     }
 
     private bool ObstructedVision()
@@ -63,7 +82,7 @@ public class EnemyVision : MonoBehaviour
 
         // Disable the looking around rotation while chasing
         // (Keep the current rotation towards the player)
-        isChasing = false;
+        atOrigin = false;
 
         Vector2 direction = (player.position - transform.position).normalized;
         Vector2 movement = direction * moveSpeed * Time.deltaTime;
@@ -79,7 +98,6 @@ public class EnemyVision : MonoBehaviour
 
     private void ReturnToOrigin()
     {
-        
         // Enable the looking around rotation while in the origin position
         Vector2 direction = (originPosition.position - transform.position).normalized;
         Vector2 movement = direction * moveSpeed * Time.deltaTime;
@@ -91,5 +109,33 @@ public class EnemyVision : MonoBehaviour
         // Rotate the enemy towards the origin position smoothly
         float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, rotateSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+    }
+
+    private void RotateInPlace()
+    {
+        // Rotate the enemy in place for a duration
+        rotationTimer += Time.deltaTime;
+
+        if (rotationTimer >= rotationDuration)
+        {
+            rotationTimer = 0f;
+            atOrigin = true;
+        }
+        else
+        {
+            // Rotate the enemy towards the target rotation smoothly
+            float targetAngle = (transform.eulerAngles.z + enemyRotateSpeed * Time.deltaTime) % 360f;
+            transform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
+
+            // Update the target rotation for the next frame
+            targetRotation = targetAngle;
+        }
+    }
+
+    private void ConstantRotate()
+    {
+        // Rotate the enemy constantly while at the origin
+        float targetAngle = (transform.eulerAngles.z + enemyRotateSpeed * Time.deltaTime) % 360f;
+        transform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
     }
 }
