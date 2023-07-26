@@ -4,6 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public GameObject objectToSpawn; // Assign the prefab of the object to spawn in the Inspector
+    public AudioClip spawnAudioClip; // Drag and drop the audio clip to be played on spawn in the Inspector
 
     private Rigidbody2D rb;
     private float totalDistanceMoved = 0f;
@@ -13,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         lastPosition = rb.position;
+
+        // Play the audio clip on spawn (if one is set)
+        if (spawnAudioClip != null)
+        {
+            AudioSource.PlayClipAtPoint(spawnAudioClip, transform.position);
+        }
     }
 
     private void Update()
@@ -29,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         lastPosition = rb.position;
 
         // Check if the player has moved 1 meter
-        if (totalDistanceMoved >= 3f)
+        if (totalDistanceMoved >= 15f)
         {
             SpawnObject();
             totalDistanceMoved = 0f; // Reset the distance counter
@@ -40,5 +47,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Spawn the object at the player's position
         Instantiate(objectToSpawn, rb.position, Quaternion.identity);
+
+        // Play the spawn audio clip (if one is set)
+        if (spawnAudioClip != null)
+        {
+            AudioSource.PlayClipAtPoint(spawnAudioClip, transform.position);
+        }
     }
 }

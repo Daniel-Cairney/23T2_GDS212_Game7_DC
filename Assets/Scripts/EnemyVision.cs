@@ -18,9 +18,16 @@ public class EnemyVision : MonoBehaviour
     private float targetRotation;
     private float rotationTimer;
 
+    private float currentRotation = 0f;
+    private bool reachedOrigin = false;
+
+    
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+       
     }
 
     private void Update()
@@ -39,6 +46,7 @@ public class EnemyVision : MonoBehaviour
                 {
                     playerDetected = true;
                     isChasing = true;
+                    reachedOrigin = false; // Reset the flag when the enemy starts chasing
                     ChasePlayer();
                     break;
                 }
@@ -51,12 +59,10 @@ public class EnemyVision : MonoBehaviour
         {
             if (!atOrigin)
             {
-               
                 RotateInPlace();
             }
             else
             {
-               
                 ReturnToOrigin();
                 ConstantRotate();
             }
@@ -109,6 +115,13 @@ public class EnemyVision : MonoBehaviour
         // Rotate the enemy towards the origin position smoothly
         float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, rotateSpeed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        // Check if the enemy has reached the origin point
+        if (!reachedOrigin && Vector3.Distance(transform.position, originPosition.position) < 0.1f)
+        {
+            reachedOrigin = true;
+            currentRotation = transform.eulerAngles.z; // Set the initial rotation for constant rotation
+        }
     }
 
     private void RotateInPlace()
@@ -134,8 +147,12 @@ public class EnemyVision : MonoBehaviour
 
     private void ConstantRotate()
     {
-        // Rotate the enemy constantly while at the origin
-        float targetAngle = (transform.eulerAngles.z + enemyRotateSpeed * Time.deltaTime) % 360f;
-        transform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
+        if (reachedOrigin)
+        {
+            // Rotate the enemy constantly while at the origin
+            currentRotation += enemyRotateSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.Euler(0f, 0f, currentRotation);
+        }
     }
+
 }
