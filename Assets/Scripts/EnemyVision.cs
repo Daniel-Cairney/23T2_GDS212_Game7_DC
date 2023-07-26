@@ -21,6 +21,8 @@ public class EnemyVision : MonoBehaviour
     private float currentRotation = 0f;
     private bool reachedOrigin = false;
 
+    private bool isMovingToRipple = false;
+    private Vector3 rippleLocation;
     
 
 
@@ -57,7 +59,12 @@ public class EnemyVision : MonoBehaviour
         isChasing = playerDetected;
         if (!isChasing)
         {
-            if (!atOrigin)
+            if (isMovingToRipple)
+            {
+                MoveToRipple();
+            }
+
+            else if (!atOrigin)
             {
                 RotateInPlace();
             }
@@ -152,6 +159,31 @@ public class EnemyVision : MonoBehaviour
             // Rotate the enemy constantly while at the origin
             currentRotation += enemyRotateSpeed * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0f, 0f, currentRotation);
+        }
+    }
+
+    public void CheckRipple(Transform ripple)
+    {
+        Debug.Log("Move Towards" + ripple.position);
+      
+        isMovingToRipple= true;
+        rippleLocation = ripple.position;
+    }
+
+    public void MoveToRipple()
+    {
+        Vector2 direction = (rippleLocation - transform.position).normalized;
+        Vector2 movement = direction * moveSpeed * Time.deltaTime;
+        transform.position += new Vector3(movement.x, movement.y, 0f);
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        // Rotate the enemy towards the player smoothly
+        float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.z, targetAngle, rotateSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        if (transform.position == rippleLocation)
+        {
+            isMovingToRipple= false;
         }
     }
 

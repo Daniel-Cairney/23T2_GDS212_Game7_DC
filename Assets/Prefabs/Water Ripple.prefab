@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7002455340307221759}
+  - component: {fileID: 5648242839182315086}
   m_Layer: 0
   m_Name: Water Ripple
   m_TagString: Untagged
@@ -32,6 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5648242839182315086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5789470132701101592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a641d0bad48c374e96379a2d7983147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expansionSpeed: 2
+  destroyTime: 0.2
+  targetScale: 10
+  alphaSpeed: 1
+  spawnInterval: 1
 --- !u!1 &8204568821032878523
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +62,7 @@ GameObject:
   - component: {fileID: 7888838341126715489}
   - component: {fileID: 4992056299809697046}
   - component: {fileID: 6818768312977203251}
+  - component: {fileID: 2889339406972459209}
   m_Layer: 0
   m_Name: Water
   m_TagString: Attract
@@ -59,7 +78,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8204568821032878523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11113562, y: 0.15075432, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -126,7 +145,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8204568821032878523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a641d0bad48c374e96379a2d7983147, type: 3}
   m_Name: 
@@ -152,6 +171,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2889339406972459209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204568821032878523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad51377df7c11ca4cb3bf1fd5a64f16b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ripplePivotPoint: {fileID: 1374339937194202858}
 --- !u!1 &8882348927417774995
 GameObject:
   m_ObjectHideFlags: 0
