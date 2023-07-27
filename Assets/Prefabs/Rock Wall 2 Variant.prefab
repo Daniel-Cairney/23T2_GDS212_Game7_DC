@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3389183103831815486
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2083771856758410960, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410961, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_Name
+      value: Rock Wall 2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1510544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.1203723
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.1992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.97815603
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.20787205
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410966, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -23.995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083771856758410967, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1329322460, guid: 9c7e3ec6bf3ff3c428521077dd7c9228, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+--- !u!1 &3739051352885312495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2083771856758410961, guid: a269cc8c90c5e3a45bbad08c50a5bd06, type: 3}
+  m_PrefabInstance: {fileID: 3389183103831815486}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1722338249135535822
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3739051352885312495}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

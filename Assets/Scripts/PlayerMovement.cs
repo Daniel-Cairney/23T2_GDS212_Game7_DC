@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         lastPosition = rb.position;
 
         // Check if the player has moved 1 meter
-        if (totalDistanceMoved >= 15f)
+        if (totalDistanceMoved >= 25f)
         {
             SpawnObject();
             totalDistanceMoved = 0f; // Reset the distance counter
