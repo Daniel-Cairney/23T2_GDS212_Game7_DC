@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6186651978744369715}
   - component: {fileID: 6186651978744369714}
   - component: {fileID: 6186651978744369717}
+  - component: {fileID: 1862091523}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b38fd196714cf41a7550b65efd592d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 8
   objectToSpawn: {fileID: 5789470132701101592, guid: e7de467c940317c479a4f8c0bfb30ae8, type: 3}
   spawnAudioClip: {fileID: 8300000, guid: 46576d0634c56f344bdab4a2c2bac889, type: 3}
 --- !u!50 &6186651978744369714
@@ -140,7 +141,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.6000385, y: 5.7000003}
+    oldSize: {x: 1.2666774, y: 1.5833334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -149,3 +150,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &1862091523
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186651978744370126}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9317e0906fc19ed41a8d9ea1f9d7aed8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

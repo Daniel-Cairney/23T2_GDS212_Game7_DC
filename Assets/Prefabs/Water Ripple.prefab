@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a641d0bad48c374e96379a2d7983147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expansionSpeed: 6
+  expansionSpeed: 10
   destroyTime: 0
-  targetScale: 15
+  targetScale: 20
   alphaSpeed: 1
   spawnInterval: 1
 --- !u!1 &8204568821032878523
@@ -127,7 +127,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b46527e7e2c2f6642b891b672b40aaf7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 740c1f7ce258a4f40acdaaacbed0481d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.41960785}
   m_FlipX: 0
   m_FlipY: 0
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8882348927417774995}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
